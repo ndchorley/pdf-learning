@@ -1,12 +1,10 @@
-use std::{fs::File, io::Read};
+use lopdf::Document;
 
 #[test]
-fn can_read_a_file() {
-    let mut buffer = [0; 100_000];
+fn can_get_all_the_text_from_a_pdf() {
+    let document = Document::load("sample.pdf").unwrap();
 
-    let mut file = File::open("sample.pdf").unwrap();
+    let text = document.extract_text(&[1]).unwrap();
 
-    let bytes_read = file.read(&mut buffer).unwrap();
-
-    assert_ne!(bytes_read, 0);
+    assert_eq!(text, "intentionally-wrong");
 }
