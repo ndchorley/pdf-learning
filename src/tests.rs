@@ -15,3 +15,14 @@ fn can_get_the_pdf_version() {
 
     assert_eq!(document.version, String::from("1.3"));
 }
+
+#[test]
+fn can_get_value_for_type_in_the_catalog() {
+    let document = Document::load("sample.pdf").unwrap();
+
+    let catalog = document.catalog().unwrap();
+
+    let type_value = catalog.get("Type".as_bytes()).unwrap();
+
+    assert_eq!(type_value.as_name().unwrap(), "Catalog".as_bytes());
+}
