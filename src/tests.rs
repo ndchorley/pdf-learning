@@ -8,3 +8,10 @@ fn can_get_all_the_text_from_a_pdf() {
 
     assert_eq!(text, "intentionally-wrong");
 }
+
+#[test]
+fn can_get_the_pdf_version() {
+    let document = Document::load("sample.pdf").unwrap();
+
+    assert_eq!(document.version, String::from("1.3"));
+}
