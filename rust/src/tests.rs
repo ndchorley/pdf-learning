@@ -2,7 +2,7 @@ use lopdf::Document;
 
 #[test]
 fn can_get_all_the_text_from_a_pdf() {
-    let document = Document::load("sample.pdf").unwrap();
+    let document = Document::load("../sample.pdf").unwrap();
 
     let text = document.extract_text(&[1]).unwrap();
 
@@ -11,14 +11,14 @@ fn can_get_all_the_text_from_a_pdf() {
 
 #[test]
 fn can_get_the_pdf_version() {
-    let document = Document::load("sample.pdf").unwrap();
+    let document = Document::load("../sample.pdf").unwrap();
 
     assert_eq!(document.version, String::from("1.3"));
 }
 
 #[test]
 fn can_get_value_for_type_in_the_catalog() {
-    let document = Document::load("sample.pdf").unwrap();
+    let document = Document::load("../sample.pdf").unwrap();
 
     let catalog = document.catalog().unwrap();
 
@@ -29,7 +29,7 @@ fn can_get_value_for_type_in_the_catalog() {
 
 #[test]
 fn can_get_the_page_tree() {
-    let document = Document::load("sample.pdf").unwrap();
+    let document = Document::load("../sample.pdf").unwrap();
 
     let catalog = document.catalog().unwrap();
 
