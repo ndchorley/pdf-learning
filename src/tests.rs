@@ -26,3 +26,14 @@ fn can_get_value_for_type_in_the_catalog() {
 
     assert_eq!(type_value.as_name().unwrap(), "Catalog".as_bytes());
 }
+
+#[test]
+fn can_get_the_page_tree() {
+    let document = Document::load("sample.pdf").unwrap();
+
+    let catalog = document.catalog().unwrap();
+
+    let pages = catalog.get("Pages".as_bytes()).unwrap();
+
+    assert_eq!(pages.as_dict().is_ok(), true);
+}
