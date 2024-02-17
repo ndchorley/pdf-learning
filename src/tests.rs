@@ -33,7 +33,7 @@ fn can_get_the_page_tree() {
 
     let catalog = document.catalog().unwrap();
 
-    let pages = catalog.get("Pages".as_bytes()).unwrap();
+    let page_tree = catalog.get("Pages".as_bytes()).unwrap();
 
-    assert_eq!(pages.as_dict().is_ok(), true);
+    assert_eq!(page_tree.as_dict().is_ok(), true);
 }
